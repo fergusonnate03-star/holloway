@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<title>QR Code Generator</title>
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#f2f2f2;
+}
+
+.box{
+background:white;
+padding:20px;
+width:240px;
+margin:auto;
+margin-top:50px;
+border-radius:10px;
+}
+
+input{
+width:90%;
+padding:8px;
+margin:10px;
+}
+
+button{
+padding:8px 15px;
+}
+
+img{
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2 class="e">QR Kod Yaratish</h2>
+
+
+<input type="text" id="text" placeholder="Matn yoki link yozing">
+
+<br>
+
+<button onclick="createQR()">QR yarating</button>
+
+<br>
+
+<img id="qr">
+
+</div>
+
+<script>
+
+function createQR(){
+
+let text=document.getElementById("text").value
+let qr=document.getElementById("qr")
+
+qr.src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+text
+
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>SUPER MATEMATIKA AI </title>
+<style>
+body{
+    font-family: Arial;
+    background: linear-gradient(45deg,#000428,#004e92);
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+h1{font-size:32px;}
+input{
+    padding:12px;
+    width:70%;
+    font-size:18px;
+    border-radius:8px;
+    border:none;
+}
+button{
+    padding:12px 20px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:5px;
+}
+#output{
+    margin-top:20px;
+    background:gray;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    font-size:20px;
+}
+</style>
+</head>
+<body>
+
+<h1 class="color-red">🤖 SUPER MATEMATIKA AI</h1>
+
+<input type="text" id="textInput" placeholder="Masalani yoz yoki gapir...">
+<br>
+<button onclick="processText()">Hisobla</button>
+<button onclick="startListening()">🎤 Ovozli gapir</button>
+
+<div id="output">Javob shu yerda chiqadi... </div>
+
+<script>
+
+const output = document.getElementById("output");
+const input = document.getElementById("textInput");
+
+function speak(text){
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "uz-UZ";
+    speech.rate = 1;
+    speechSynthesis.speak(speech);
+}
+
+function calculate(text){
+
+    text = text.toLowerCase();
+
+    if(text.includes("salom")){
+        return "Salom! Menga matematik masala ber.";
+    }
+
+    if(text.includes("rahmat")){
+        return "Arzimaydi!";
+    }
+
+    let numbers = text.match(/\d+/g);
+
+    if(numbers && numbers.length >= 2){
+
+        let a = parseFloat(numbers[0]);
+        let b = parseFloat(numbers[1]);
+
+        if(text.includes("-") ||  text.includes("oldzi") || text.includes("ayir")){
+            return a - b;
+        }
+
+        if(text.includes("qo'sh") || text.includes("plus") || text.includes("+")){
+            return a + b;
+        }
+
+        if(text.includes("ko'pay") ||  text.includes("kopay") || text.includes("*")){
+            return a * b;
+        }
+
+        if(text.includes("bo'l") || text.includes("bol") ||  text.includes("/")){
+       
+            return a / b;
+        }
+
+        // agar oddiy 5 3 desa default plus
+        return a + b;
+    }
+
+    return "Masalani to‘liqroq ayt.";
+}
+
+function processText(){
+    let text = input.value;
+    output.innerHTML = "Siz yozdingiz Ответ: " + text;
+
+    let answer = calculate(text);
+
+    output.innerHTML += "<br><br>Javob: " + answer;
+
+    speak(answer.toString());
+}
+
+function startListening(){
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "uz-UZ";
+    recognition.start();
+
+    recognition.onresult = function(event){
+        let text = event.results[0][0].transcript;
+        input.value = text;
+        processText();
+    };
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mini Tarjimon</title>
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:50px;
+}
+</style>
+</head>
+<body>
+
+<h2>Asad Tarjimon</h2>
+
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {pageLanguage: 'uz'},
+    'google_translate_element'
+  );
+}
+</script>
+
+
+
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="./script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+</body>
+<script src="./script.js"></script>
+</html>
